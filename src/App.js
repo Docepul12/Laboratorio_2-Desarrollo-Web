@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PagPrincipal from './components/PagPrincipal';
+import PagGaleria from './components/PagGaleria';
+import PagProductos from './components/PagProductos';
+import PagContacto from './components/PagContacto';
+import CompNavbar from './components/CompNavbar';
+import CompFooter from './components/CompFooter';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <CompNavbar />
+        <Routes>
+          <Route path="/" element={<PagPrincipal />} />
+          <Route path="/galeria" element={<PagGaleria />} />
+          <Route path="/productos" element={<PagProductos />} />
+          <Route path="/contacto" element={<PagContacto />} /> {/* Nueva ruta */}
+          {/* Agregar más rutas según las páginas creadas */}
+        </Routes>
+        <CompFooter />
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
+
+
